@@ -60,7 +60,7 @@ class App extends Component {
   onCheckUnique = (name) => {
     const { contacts } = this.state;
     const isExistContact = !!contacts.find(
-      (item) => item.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+      (item) => item.name.toLowerCase() === name.toLowerCase()
     );
     isExistContact
       ? this.setState({ isExistContact: true })

@@ -1,5 +1,7 @@
+import { ADDCONTACTS } from "../constants/phBookConstants";
+
 const addNote = (text) => ({
-  type: "ADD_NOTE",
+  type: ADDCONTACTS,
   payload: {
     id: Date.now(),
     text,
