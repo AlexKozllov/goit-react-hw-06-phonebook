@@ -1,3 +1,5 @@
-const ADDCONTACTS = "@phBook/sddContacts";
+const ADDCONTACTS = "@phBook/addContacts";
+const REMOVECONTACT = "@phBook/removeContact";
+const SETFILTER = "@phBook/setFilter";
 
-export { ADDCONTACTS };
+export { ADDCONTACTS, REMOVECONTACT, SETFILTER };

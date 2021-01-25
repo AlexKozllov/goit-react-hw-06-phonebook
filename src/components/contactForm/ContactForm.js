@@ -6,8 +6,15 @@ import Alert from "../alert/Alert";
 
 import s from "./contactForm.module.css";
 import shiftAlert from "../animation/shiftAlert.module.css";
+import { connect } from "react-redux";
+import { addContacts } from "../../redux/actions/phBookActions";
 
-const InitialState = { name: "", number: "", validateForm: true };
+const InitialState = {
+  name: "",
+  number: "",
+  validateForm: true,
+  isExistContact: false,
+};
 class ContactForm extends Component {
   state = InitialState;
 
@@ -17,7 +24,6 @@ class ContactForm extends Component {
       [name]: value,
     });
   };
-
   handleSubmit = (e) => {
     e.preventDefault();
     const { addContacts } = this.props;
@@ -28,8 +34,19 @@ class ContactForm extends Component {
     this.setState(InitialState);
   };
 
+  onCheckUnique = (name) => {
+    const { listContacts } = this.props;
+    const isExistContact = !!listContacts.find(
+      (item) => item.name.toLowerCase() === name.toLowerCase()
+    );
+    isExistContact
+      ? this.setState({ isExistContact: true })
+      : this.setState({ isExistContact: false });
+
+    return !isExistContact;
+  };
+
   validateForm = () => {
-    const { onCheckUnique } = this.props;
     const { name, number } = this.state;
     if (!name || !number) {
       this.setState({ validateForm: false });
@@ -38,11 +55,11 @@ class ContactForm extends Component {
     if (!!name && !!number) {
       this.setState({ validateForm: true });
     }
-    return onCheckUnique(name);
+    return this.onCheckUnique(name);
   };
 
   render() {
-    const { isExistContact } = this.props;
+    const { isExistContact } = this.state;
     const { name, number, validateForm } = this.state;
     return (
       <>
@@ -90,7 +107,15 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+const mapStateToProps = (state, ownProps) => ({
+  listContacts: state.contacts.items,
+});
+
+const mapDispatchToProps = {
+  addContacts,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
 
 // const Form = styled.form`
 //   input {

@@ -1,11 +1,22 @@
-import { ADDCONTACTS } from "../constants/phBookConstants";
+import {
+  ADDCONTACTS,
+  REMOVECONTACT,
+  SETFILTER,
+} from "../constants/phBookConstants";
 
-const addNote = (text) => ({
+const addContacts = (payload) => ({
   type: ADDCONTACTS,
-  payload: {
-    id: Date.now(),
-    text,
-  },
+  payload,
 });
 
-export { addNote };
+const revoveContact = (payload) => ({
+  type: REMOVECONTACT,
+  payload,
+});
+
+const setFilter = (payload) => ({
+  type: SETFILTER,
+  payload,
+});
+
+export { addContacts, revoveContact, setFilter };

@@ -1,7 +1,10 @@
-import { createStore } from "redux";
-import { phBookRedusers } from "./redusers/phBookRedusers";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const store = createStore(phBookRedusers, composeWithDevTools());
+import { phBookRedusers } from "./redusers/phBookRedusers";
+
+const rootReducer = combineReducers({ contacts: phBookRedusers });
+
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;
