@@ -13,21 +13,6 @@ class App extends Component {
     isExistContact: false,
   };
 
-  componentDidMount() {
-    if (localStorage.getItem("contacts")) {
-      this.setState({
-        contacts: [...JSON.parse(localStorage.getItem("contacts"))],
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { contacts } = this.state;
-    if (prevState !== this.state) {
-      localStorage.setItem("contacts", JSON.stringify([...contacts]));
-    }
-  }
-
   render() {
     const { isExistContact } = this.state;
     return (

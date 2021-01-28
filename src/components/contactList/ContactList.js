@@ -5,7 +5,7 @@ import s from "./contactList.module.css";
 import shiftAnimation from "../animation/shiftAnimation.module.css";
 import { connect } from "react-redux";
 import Filter from "../filter/Filter";
-import { revoveContact } from "../../redux/actions/phBookActions";
+import { removeContact } from "../../redux/actions/phBookActions";
 
 import scaleAnimation from "../animation/scaleAnimation.module.css";
 
@@ -64,6 +64,6 @@ const mapStateToProps = (state, ownProps) => ({
   filter: state.contacts.filter,
 });
 
-const mapDispatchToProps = { revoveContact };
+const mapDispatchToProps = { removeContact };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
