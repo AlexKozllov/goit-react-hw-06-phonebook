@@ -1,22 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { combineReducers } from "redux";
 
 import { phBookRedusers } from "./redusers/phBookRedusers";
 
-import { addContacts, revoveContact, setFilter } from "./actions/phBookActions";
-
-// const rootReducer = combineReducers({ contacts: phBookRedusers });
-
-// const store = createStore(rootReducer, composeWithDevTools());
+const rootReducer = combineReducers({ contacts: phBookRedusers });
 
 const store = configureStore({
-  reducer: {
-    contacts: {
-      items: [],
-      filter: "",
-    },
-  },
+  reducer: rootReducer,
 });
 
 export default store;

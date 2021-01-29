@@ -9,7 +9,7 @@ import { removeContact } from "../../redux/actions/phBookActions";
 
 import scaleAnimation from "../animation/scaleAnimation.module.css";
 
-const ContactList = ({ listContacts, filter, revoveContact }) => {
+const ContactList = ({ listContacts, filter, removeContact }) => {
   console.log("listContacts", listContacts);
 
   const getVisibleContacts = (filter) => {
@@ -46,7 +46,7 @@ const ContactList = ({ listContacts, filter, revoveContact }) => {
               <button
                 type="button"
                 onClick={() => {
-                  revoveContact(item.id);
+                  removeContact(item.id);
                 }}
               >
                 &#215;
