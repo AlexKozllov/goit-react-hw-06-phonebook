@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import s from "./contactList.module.css";
@@ -10,8 +10,6 @@ import { removeContact } from "../../redux/actions/phBookActions";
 import scaleAnimation from "../animation/scaleAnimation.module.css";
 
 const ContactList = ({ listContacts, filter, removeContact }) => {
-  console.log("listContacts", listContacts);
-
   const getVisibleContacts = (filter) => {
     console.log("filter", filter);
     if (!!filter) {
