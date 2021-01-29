@@ -10,10 +10,7 @@ import { removeContact } from "../../redux/actions/phBookActions";
 import scaleAnimation from "../animation/scaleAnimation.module.css";
 
 const ContactList = ({ listContacts, filter, removeContact }) => {
-  console.log("listContacts", listContacts);
-
   const getVisibleContacts = (filter) => {
-    console.log("filter", filter);
     if (!!filter) {
       return listContacts.filter((contact) =>
         contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
