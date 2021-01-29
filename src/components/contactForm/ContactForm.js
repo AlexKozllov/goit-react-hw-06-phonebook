@@ -108,7 +108,6 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("state", state);
   return {
     listContacts: state.contacts.items,
   };
