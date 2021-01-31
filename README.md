@@ -1,4 +1,5 @@
 # Choose a branch
 
-main --> React-Redax;
+main --> React-Redax
+...
 toolkit --> Redux Toolkit
